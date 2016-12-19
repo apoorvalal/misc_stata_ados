@@ -36,7 +36,7 @@ Adds prefix of variable label / variable name to stata value labels so that regr
   esttab using "output.csv", label replace
 ```
 
-# usage
+# Installation
 Download ados and move to `c(sysdir_personal)` (where ssc-installed ados live) 
 
 Will upload sthlp files at some point. 
