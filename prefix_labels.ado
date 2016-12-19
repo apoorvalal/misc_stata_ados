@@ -1,6 +1,6 @@
 // Apoorva Lal
 // V 1.0
-pr fix_labels
+pr prefix_labels
 	version 8
 	syntax varlist 
 	/*
