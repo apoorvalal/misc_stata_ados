@@ -169,11 +169,10 @@ program define freq_table
 			tempfile t`i'
 			save "`t`i''", replace
 			restore
-			loc nrows `i'
 		}
 		clear
 		use "`t0'", clear
-		forv f = 1/`nrows' {
+		forv f = 1/`n' {
 			append using "`t`f''"
 		}
 	}
