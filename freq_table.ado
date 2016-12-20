@@ -9,14 +9,6 @@ program define freq_table
 	syntax anything // not quite, but easist to handle programmatically this way
 
 	loc codedir "`c(pwd)'"
-	loc temp "`c(tmpdir)'"
-	mkdir "`temp'\\freq_table_temp\"
-	qui cap cd "`temp'\\freq_table_temp\"
-	if _rc {
-		noi di as error "Unable to create `temp'\\freq_table_temp\ folder; pelase create manually before running"
-		error
-	}
-	else !erase *.dta
 	qui cd "`codedir'"
 
 	loc temp1 : list clean anything
@@ -37,7 +29,8 @@ program define freq_table
 		g label = "ALL"
 		g count = denom
 		qui compress 
-		save "`temp'\\freq_table_temp\\row_0", replace
+		tempfile t0
+		save "`t0'", replace
 	}
 	restore 
 	qui {
@@ -66,7 +59,7 @@ program define freq_table
 						qui levelsof `suffix`x'', clean loc(`suffix`x''_levels) miss
 						loc n_var`x': list sizeof `suffix`x''_levels
 						loc lab`x' : var l `suffix`x''
-						if "`lab`x''" == loc lab`x' `suffix`x''
+						if "`lab`x''" == "" loc lab`x' `suffix`x''
 						loc vlab`x' : val l `suffix`x''
 						cap conf string var `suffix`x''
 						if !_rc {
@@ -119,7 +112,7 @@ program define freq_table
 					qui levelsof `suffix`x'', clean loc(`suffix`x''_levels) miss
 					loc n_var`x': list sizeof `suffix`x''_levels
 					loc lab`x' : var l `suffix`x''
-					if "`lab`x''" == loc lab`x' `suffix`x''
+					if "`lab`x''" == "" loc lab`x' `suffix`x''
 					loc vlab`x' : val l `suffix`x''
 					cap conf string var `suffix`x''
 					if !_rc {
@@ -173,13 +166,15 @@ program define freq_table
 				replace count = N_`r' if _n == `r'
 			}
 			g pct = count/denom
-			save "`temp'\\freq_table_temp\\row_`i'", replace
+			tempfile t`i'
+			save "`t`i''", replace
 			restore
+			loc nrows `i'
 		}
-		loc files : dir "`temp'\\freq_table_temp\\" files "row_*.dta"
 		clear
-		foreach f in `files' {
-			append using "`temp'\\freq_table_temp\\`f'"
+		use "`t0'", clear
+		forv f = 1/`nrows' {
+			append using "`t`f''"
 		}
 	}
 end
