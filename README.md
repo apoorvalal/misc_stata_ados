@@ -37,6 +37,8 @@ Adds prefix of variable label / variable name to stata value labels so that regr
 ```
 
 # Installation
+net install [program], from(https://github.com/apoorvalal/misc_stata_ados/master/)
+
 Download ados and move to `c(sysdir_personal)` (where ssc-installed ados live) 
 
 Will upload sthlp files at some point. 
