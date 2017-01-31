@@ -25,6 +25,6 @@ pr def bettertab
 		}
 	}
 	numlabel `label_list', add
-	`tabcmd' `varlist'
+	`tabcmd' `varlist' if `touse'
 	numlabel `label_list', remove
 end
