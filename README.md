@@ -76,17 +76,25 @@ Max obs: 50
 Searches for string specified in `for()` in `varlist`, optionally generates flag for observations where matches were found.
 ```
 lookin enr2000 enr2001 enr2002, for("Y") g(enr_2000_2002)
-
 ```
 ## unstable
 Checks for variation in variable(s) across other variable(s)
 ```
 unstable gender age, by(student)
 ```
+## partition_var
+Takes `variable` and `cutpoints` and generates dummies with prefix specified in `prefix`. Example:
+```
+partition_var age, cut(0 35 50 75) prefix(age)
+```
+generates the variables (with the appropriate variable labels):
+a_0_35
+a_36_50
+a_51_75
+a76
 
 # Installation
-`net install [program], from(https://github.com/apoorvalal/misc_stata_ados/master/)`
-
-Download ados and move to `c(sysdir_personal)` (where ssc-installed ados live) 
-
+Either download ados and move to `c(sysdir_personal)` (where ssc-installed ados live) 
+or  `net install [program], from(https://github.com/apoorvalal/misc_stata_ados/master/)`
 Will upload sthlp files at some point. 
+
