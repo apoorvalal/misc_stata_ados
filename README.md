@@ -85,7 +85,7 @@ unstable gender age, by(student)
 ```
 
 # Installation
-net install [program], from(https://github.com/apoorvalal/misc_stata_ados/master/)
+`net install [program], from(https://github.com/apoorvalal/misc_stata_ados/master/)`
 
 Download ados and move to `c(sysdir_personal)` (where ssc-installed ados live) 
 
