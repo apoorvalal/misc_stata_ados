@@ -35,6 +35,54 @@ Adds prefix of variable label / variable name to stata value labels so that regr
   reg income sex education 
   esttab using "output.csv", label replace
 ```
+## bettertab
+Wrapper for default tab/tab2 commands that temporarily adds numeric value prefixes and drops them afterwards (so that they don't affect graphs etc.)
+```
+bettertab race sex
+```
+returns
+
+| Race                      | 1.F                         | 2.M              | Total 	  |       
+|---------------------------|-----------------------------|------------------|----------|       
+| 1. Black                  | **counts**                  | **counts**       |**counts**|       
+| 2. White                  | **counts**                  | **counts**       |**counts**|       
+| 3. Asian                  | **counts**                  | **counts**       |**counts**|       
+| 4. Native American        | **counts**                  | **counts**       |**counts**|       
+
+## count_unique
+Duplicate functionality with codebook, but returns scalar that can be used for calculations / stored as a variable in a loop.
+```
+count_unique teacher classroom
+sca ntc = `r(nv)'
+```
+## duprep
+Detailed report on duplicates / missing values in variable.
+
+```
+duprep student_id 
+// returns
+/*
+*______student_id___________*
+Distinct populated obs : 542
+% Singletons : 45
+Min obs : 1
+Mean obs : 4
+Max obs: 50
+% of obs with missing values: 1
+*/
+
+```
+## lookin
+Searches for string specified in `for()` in `varlist`, optionally generates flag for observations where matches were found.
+```
+lookin enr2000 enr2001 enr2002, for("Y") g(enr_2000_2002)
+
+```
+## unstable
+Checks for variation in variable(s) across other variable(s)
+```
+unstable gender age, by(student)
+```
 
 # Installation
 net install [program], from(https://github.com/apoorvalal/misc_stata_ados/master/)
