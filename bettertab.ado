@@ -4,7 +4,7 @@ cap pr drop bettertab
 pr def bettertab 
 	version 6
 	syntax varlist [if] [in] [, NMissing]
-	marksample touse, novarlist
+	marksample touse, novarlist // without novarlist, marksample drops missing values
 	loc nvars : list sizeof varlist
 	if `nvars' == 1 {
 		loc tabcmd tab
