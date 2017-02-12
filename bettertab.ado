@@ -1,5 +1,5 @@
 *! V0.1 31012017, Apoorva Lal
-// wrapper for tab / tab2 that adds value prefixes for factor variables
+// wrapper for tab / tab2 that adds value prefixes for factor variables and tabulates missing values by default
 cap pr drop bettertab
 pr def bettertab 
 	version 6
