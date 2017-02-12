@@ -3,8 +3,8 @@
 cap pr drop bettertab
 pr def bettertab 
 	version 6
-	syntax varlist [if] [in]
-	marksample touse
+	syntax varlist [if] [in] [, NMissing]
+	marksample touse, novarlist
 	loc nvars : list sizeof varlist
 	if `nvars' == 1 {
 		loc tabcmd tab
@@ -12,19 +12,25 @@ pr def bettertab
 	else {
 		loc tabcmd tab2
 	}
+	if "`nmissing'" != "" {
+		loc opt " "
+	}
+	else {
+		loc opt ", m"
+	}
+
 	loc label_list ""
 	foreach v in `varlist' {
 		cap conf var `v'
 		if !_rc {
 			loc la_`v': value label `v'
-			loc label_list `label_list' `la_`v''
 		}
 		else {
 			noi di "`v' not found"
 			error
 		}
 	}
-	numlabel `label_list', add
-	`tabcmd' `varlist' if `touse'
-	numlabel `label_list', remove
+	cap numlabel `label_list', add
+	`tabcmd' `varlist' if `touse'`opt'  
+	cap numlabel `label_list', remove
 end
