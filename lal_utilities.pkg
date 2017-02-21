@@ -11,6 +11,6 @@ f freq_table.ado
 f lookin.ado
 f lower_varnames.ado
 f partition_var.ado
-f prefix_label.ado
+f prefix_labels.ado
 f unstable.ado
 f winsorize.ado

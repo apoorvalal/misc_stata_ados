@@ -95,6 +95,6 @@ a76
 
 # Installation
 Either download ados and move to `c(sysdir_personal)` (where ssc-installed ados live) 
-or  `net install lal_utilities, from(https://github.com/apoorvalal/misc_stata_ados/master/)`
+or  `net install lal_utilities, from(https://raw.github.com/apoorvalal/misc_stata_ados/master/)`
 Will upload sthlp files at some point. 
 
