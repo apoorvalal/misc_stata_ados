@@ -1,3 +1,4 @@
+* !ALAL 20022017
 cap pr drop cond_stitcher
 pr def cond_stitcher, rclass 
 	// stitches together a long OR or AND statement given an array of dummy variables

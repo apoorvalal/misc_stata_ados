@@ -1,3 +1,5 @@
+* !ALAL 20012017
+cap pr drop count_uniq
 pr count_uniq, rclass sortpreserve byable(recall)
 	version 10
 	syntax varlist [if] [in]  

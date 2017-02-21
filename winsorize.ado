@@ -1,8 +1,10 @@
-cap pr drop winsorize 
+* !ALAL 20022017
+/*  winsorizes variable specified either at cutpoints specified
+ OR limits (where 5 = 5th and 95th percentile ), and optionally 
+ generates variable specified in generate
+ */
 pr def winsorize, rclass
 	version 10
-	/*  winsorizes variable specified either at cutpoints specified OR limits (where 5 = 5th and 95th percentile ), and optionally generates variable specified in generate
-	 */
 	syntax varlist [, GENerate(name) AT(numlist max = 2) LIMits(numlist)]
 	loc ncutpoints : list sizeof at
 	if `ncutpoints' > 2 {
