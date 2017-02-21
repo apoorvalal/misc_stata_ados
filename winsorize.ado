@@ -1,6 +1,6 @@
 cap pr drop winsorize 
 pr def winsorize, rclass
-	version 6
+	version 10
 	syntax varlist [, GENerate(name) AT(numlist max = 2) LIMits(numlist)]
 	loc ncutpoints : list sizeof at
 	if `ncutpoints' > 2 {
@@ -22,7 +22,7 @@ pr def winsorize, rclass
 		loc lower 0 
 		loc upper 99
 	}
-	if "`limits'" == "" {
+	if "`limits'" != "" {
 		loc lower `limits'	
 		loc upper `=1-`limits''
 	}
