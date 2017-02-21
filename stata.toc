@@ -1,0 +1,3 @@
+v 1.0.0
+d 'ALAL Misc ados': Various stata programs written for work and research. 
+p findall
