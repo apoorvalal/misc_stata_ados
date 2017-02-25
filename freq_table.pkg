@@ -1,5 +1,0 @@
-d freq_table - Stata utility to produce csv-export ready frequency table with labels and interactions
-d
-d Author: Apoorva Lal
-
-f freq_table.ado
