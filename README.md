@@ -1,6 +1,13 @@
 # misc_stata_ados
 Misc Utility programs in Stata. Brief intros below.
 
+## winsorize
+Winsorizes specified variable at cutpoints specified in `AT(lowerbound upperbound)` or `lim(limit 100-limit)` and optionally generates new variable.
+
+```stata
+winsorize price, gen(newprice) at (1 99)
+
+```
 ## freq_table
 Replaces dataset in memory with a frequency table of variables and interactions. Accepts dummy variables, factor variables, and their interactions and produces a labelled table (by extracting appropriate variable and value labels, if they exist) of counts for dummies (e.g. `female, rur_urb` ), each level of factor variables (`i.education, i.country`) and each cell in the crosstab between categorical variables separated by * or # (`i.education#i.country`).
 
@@ -37,12 +44,12 @@ Adds prefix of variable label / variable name to stata value labels so that regr
 ```
 ## bettertab
 Wrapper for default tab/tab2 commands that temporarily adds numeric value prefixes and drops them afterwards (so that they don't affect graphs etc.)
-```
+```stata
 bettertab race sex
 ```
 returns
 
-| Race                      | 1.F                         | 2.M              | Total 	  |       
+| Race                      | 1.F                         | 2.M              | Total    |       
 |---------------------------|-----------------------------|------------------|----------|       
 | 1. Black                  | **counts**                  | **counts**       |**counts**|       
 | 2. White                  | **counts**                  | **counts**       |**counts**|       
@@ -51,7 +58,7 @@ returns
 
 ## count_unique
 Duplicate functionality with codebook, but returns scalar that can be used for calculations / stored as a variable in a loop.
-```
+```stata
 count_unique teacher classroom
 sca ntc = `r(nv)'
 ```
@@ -84,7 +91,7 @@ unstable gender age, by(student)
 ```
 ## partition_var
 Takes `variable` and `cutpoints` and generates dummies with prefix specified in `prefix`. Example:
-```
+```stata
 partition_var age, cut(0 35 50 75) prefix(age)
 ```
 generates the variables (with the appropriate variable labels):
@@ -92,6 +99,25 @@ a_0_35
 a_36_50
 a_51_75
 a76
+
+## pathmake
+Generates entire folder structure for `path` necessary, which the native `mkdir` command cannot do. 
+```
+pathmake "C:/Users/alal/Desktop/test1/temp/test2/test3/test4/test5"
+```
+creates the entire folder structure, even though the subdirectories didn't exist to begin with. 
+
+## cond_stitcher
+Returns a long string separated by OR (|) or AND(&) operators that can be used in subsequent calculations. 
+```stata
+loc test "age05 age610 age1115 male old"
+cond_stitcher `test', sep(|)
+// returns "age05|age610|age1115|male|old"
+count if `r(cond)'   
+> 55 
+``` 
+
+
 
 # Installation
 Either download ados and move to `c(sysdir_personal)` (where ssc-installed ados live) 
