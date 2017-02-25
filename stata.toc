@@ -1,3 +1,15 @@
-v 1.0.0
+v 3
 d 'lal_utilities': Various stata programs written for work and research. 
-p 'WINSORIZE': winsorizes specified variables
+p 'BETTERTAB' : tab wrapper with missing values
+p 'COND_STITCHER' : stitches together conditional for dummies
+p 'COUNT_UNIQ' : counts unique values
+p 'DUPREP' : reports duplicates
+p 'FIX_PATH' : flips slashes on windows paths
+p 'FREQ_TABLE' : outputs a frequency table for specified variables
+p 'LOOKIN' : string search
+p 'LOWER_VARNAMES' : lowers variable names
+p 'PARTITION_VAR' : partitions vars and generates dummies based on specified cutpoints
+p 'PATHMAKE' : creates folder structure
+p 'PREFIX_LABELS' : adds variable name prefix to labels
+p 'UNSTABLE' : reports unstable values for var by id variables
+p 'WINSORIZE': winsorizes specified variables at specified cutpoints
