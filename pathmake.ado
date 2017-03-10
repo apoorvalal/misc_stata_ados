@@ -4,12 +4,7 @@ pr def pathmake
 	version 10
 	args p
 	loc cwd = "`c(pwd)'"
-	if "`c(os)'" == "Windows" {
-		loc makedir mkdir
-	}
-	else {
-		loc makedir md
-	}
+	loc makedir mkdir	
 	if "`p'" == "" {
 		di as error "pathmake needs an argument"
 		error
