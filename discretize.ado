@@ -1,5 +1,5 @@
-cap pr drop discretise
-pr def discretise, rclass
+cap pr drop discretize
+pr def discretize, rclass
 	syntax varlist, GENerate(name) [CUTpoints(numlist) NBins(numlist)]
 	if "`nbins'" != "" {
 		loc increments = 100/`nbins'
