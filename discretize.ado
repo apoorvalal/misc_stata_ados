@@ -1,5 +1,11 @@
 cap pr drop discretize
 pr def discretize, rclass
+	/*
+	Discretises specified variable by constructing bins based
+	on provided cutpoints / N number equal sized bins based on provided 
+	NBins 
+	*/  
+
 	syntax varlist, GENerate(name) [CUTpoints(numlist) NBins(numlist)]
 	if "`nbins'" != "" {
 		loc increments = 100/`nbins'
