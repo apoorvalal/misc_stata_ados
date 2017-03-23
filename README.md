@@ -1,6 +1,15 @@
 # misc_stata_ados
 Misc Utility programs in Stata. Brief intros below.
 
+## discretize
+Creates discrete values (bins) for a specified continuous variable, either using the percentile cutpoints specified in `cutpoints(a, b, c)` or into N number of uniform sized bins as specified in `nbins(n)`. 
+Useful when trying to frame a regression specification as a classification problem (low / medium / high cost based on cutpoints). 
+
+```stata
+discretize total_cost, gen(cost_level) at(25 50 75)
+discretize total_cost, gen(bins) nbins(200)
+```
+
 ## winsorize
 Winsorizes specified variable at cutpoints specified in `AT(lowerbound upperbound)` or `lim(limit 100-limit)` and optionally generates new variable.
 
