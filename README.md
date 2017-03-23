@@ -3,7 +3,7 @@ Misc Utility programs in Stata. Brief intros below.
 
 ## discretize
 Creates discrete values (bins) for a specified continuous variable, either using the percentile cutpoints specified in `cutpoints(a, b, c)` or into N number of uniform sized bins as specified in `nbins(n)`. 
-Useful when trying to frame a regression specification as a classification problem (low / medium / high cost based on cutpoints). 
+Useful when trying to frame a regression specification as a classification problem to be handled using an ordered/multinomial logit (e.g. low / medium / high cost based on cutpoints). 
 
 ```stata
 discretize total_cost, gen(cost_level) at(25 50 75)
