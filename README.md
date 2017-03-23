@@ -120,7 +120,10 @@ count if `r(cond)'
 
 
 # Installation
-Either download ados and move to `c(sysdir_personal)` (where ssc-installed ados live) 
-or  `net install lal_utilities, from(https://raw.github.com/apoorvalal/misc_stata_ados/master/)`
+Run the following line in the Stata console:
+
+`net install lal_utilities, from(https://raw.github.com/apoorvalal/misc_stata_ados/master/)`
+
+Or, if you prefer, download ados and move to your personal ado folder / `c(sysdir_personal)` (where ssc-installed ados live) 
 Will upload sthlp files at some point. 
 
