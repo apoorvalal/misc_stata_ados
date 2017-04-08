@@ -1,6 +1,15 @@
 # misc_stata_ados
 Misc Utility programs in Stata. Brief intros below.
 
+## discretize
+Creates discrete values (bins) for a specified continuous variable, either using the percentile cutpoints specified in `cutpoints(a, b, c)` or into N number of uniform sized bins as specified in `nbins(n)`. 
+Useful when trying to frame a regression specification as a classification problem to be handled using an ordered/multinomial logit (e.g. low / medium / high cost based on cutpoints). 
+
+```stata
+discretize total_cost, gen(cost_level) at(25 50 75)
+discretize total_cost, gen(bins) nbins(200)
+```
+
 ## winsorize
 Winsorizes specified variable at cutpoints specified in `AT(lowerbound upperbound)` or `lim(limit 100-limit)` and optionally generates new variable.
 
@@ -120,7 +129,10 @@ count if `r(cond)'
 
 
 # Installation
-Either download ados and move to `c(sysdir_personal)` (where ssc-installed ados live) 
-or  `net install lal_utilities, from(https://raw.github.com/apoorvalal/misc_stata_ados/master/)`
+Run the following line in the Stata console:
+
+`net install lal_utilities, from(https://raw.github.com/apoorvalal/misc_stata_ados/master/)`
+
+Or, if you prefer, download ados and move to your personal ado folder / `c(sysdir_personal)` (where ssc-installed ados live) 
 Will upload sthlp files at some point. 
 
