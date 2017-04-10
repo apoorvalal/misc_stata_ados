@@ -24,7 +24,7 @@ pr partition_var, rclass
 		loc a = real("``i''") + 1*(`i'!=1)
 		loc b = real("``j''")
 		if `i' == `n_bins' {
-			loc b = `m'
+			loc b = ceil(`m')
 		}
 		g `prefix'_`a'_`b' = inrange(`varlist',`a',`b')
 		loc lab "`varlist' : `a' to `b'"
