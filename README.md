@@ -6,7 +6,7 @@ Creates discrete values (bins) for a specified continuous variable, either using
 Useful when trying to frame a regression specification as a classification problem to be handled using an ordered/multinomial logit (e.g. low / medium / high cost based on cutpoints). 
 
 ```stata
-discretize total_cost, gen(cost_level) at(25 50 75)
+discretize total_cost, gen(cost_level) cut(25 50 75)
 discretize total_cost, gen(bins) nbins(200)
 ```
 
