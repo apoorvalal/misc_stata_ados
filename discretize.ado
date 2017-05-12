@@ -1,10 +1,11 @@
+* ! V0.1 30042017, Apoorva Lal
 cap pr drop discretize
 pr def discretize, rclass
 	/*
 	Discretises specified variable by constructing bins based
-	on provided cutpoints / N number equal sized bins based on provided 
-	NBins 
-	*/  
+	on provided cutpoints / N number equal sized bins based on provided
+	NBins
+	*/
 
 	syntax varlist, GENerate(name) [CUTpoints(numlist) NBins(numlist)]
 	if "`nbins'" != "" {
@@ -14,7 +15,7 @@ pr def discretize, rclass
 			if `i' < 100 {
 				loc cutpoints `cutpoints' `i'
 			}
-		}	
+		}
 	}
 	loc ncutpoints: list sizeof cutpoints
 	loc resolved_list ""

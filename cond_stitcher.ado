@@ -1,6 +1,6 @@
-* !ALAL 20022017
+* ! V0.1 20022017, Apoorva Lal
 cap pr drop cond_stitcher
-pr def cond_stitcher, rclass 
+pr def cond_stitcher, rclass
 	// stitches together a long OR or AND statement given an array of dummy variables
 	syntax anything , SEPerator(string)
 	tokenize `anything'

@@ -1,3 +1,4 @@
+* ! V0.1 30042017, Apoorva Lal
 // Apoorva Lal
 // V 1.0
 program define freq_table
@@ -28,14 +29,14 @@ program define freq_table
 		g raw = "ALL"
 		g label = "ALL"
 		g count = denom
-		qui compress 
+		qui compress
 		tempfile t0
 		save "`t0'", replace
 	}
-	restore 
+	restore
 	qui {
 		forv i = 1/`n' {
-			preserve 
+			preserve
 			loc prefix = substr("``i''",1,2)
 
 			if ("`prefix'" == "i.") {			// stata's dummy notation
@@ -46,7 +47,7 @@ program define freq_table
 					loc suffix1 = substr("``i''",3,`interaction_split'-3)
 					cap conf var `suffix1'
 					if _rc {
-						noi di as error "`suffix1' does not exist." 
+						noi di as error "`suffix1' does not exist."
 						error
 					}
 					loc suffix2 = substr("``i''",`interaction_split'+3,.)
@@ -105,7 +106,7 @@ program define freq_table
 					loc suffix1 = substr("``i''",3,.)
 					cap conf var `suffix1'
 					if _rc {
-						noi di as error "`suffix1' does not exist." 
+						noi di as error "`suffix1' does not exist."
 						error
 					}
 					loc x 1
@@ -122,16 +123,16 @@ program define freq_table
 						loc counter_type`x' numeric
 					}
 					loc x = 1
-					foreach a in ``suffix1'_levels' {	
+					foreach a in ``suffix1'_levels' {
 						if "`vlab1'" != "" loc val_lab1: lab `vlab1' `a'
 						else loc val_lab1 "`a'"
 						loc raw`x' = "`suffix1' == `a'"
 						loc labels`x' = "`lab1' == `val_lab1'"
 						if "`counter_type1'" == "string" {
-							qui count if `suffix1' == "`a'" 
+							qui count if `suffix1' == "`a'"
 						}
 						else if "`counter_type1'" == "numeric" {
-							qui count if `suffix1' == `a' 
+							qui count if `suffix1' == `a'
 						}
 						sca N_`x' = `r(N)'
 						loc ++x
@@ -153,11 +154,11 @@ program define freq_table
 				else {
 					di as error "``i'' does not exist"
 					error
-				}				
+				}
 			}
 			clear
 			set obs `=`x'-1'
-			g raw = "" 
+			g raw = ""
 			g label = ""
 			g count = 0
 			forv r = 1/`=`x'-1' {

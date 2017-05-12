@@ -1,11 +1,12 @@
+* ! V0.1 30042017, Apoorva Lal
 // Apoorva Lal
 // V 1.0
 pr prefix_labels
 	version 8
-	syntax varlist 
+	syntax varlist
 	/*
 	SYNTAX:
-	fix_labels var1 var2 ... 
+	fix_labels var1 var2 ...
 	*/
 	foreach v in `varlist'	 {
 		cap conf var `v'
