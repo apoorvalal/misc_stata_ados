@@ -6,6 +6,8 @@ f bettertab.ado
 f cond_stitcher.ado
 f count_uniq.ado
 f discretize.ado
+f dot_product.ado
+f ds2.ado
 f dtimer.ado
 f duprep.ado
 f fix_path.ado

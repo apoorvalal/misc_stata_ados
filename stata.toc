@@ -4,6 +4,8 @@ p 'BETTERTAB' : tab wrapper with missing values
 p 'COND_STITCHER' : stitches together conditional for dummies
 p 'COUNT_UNIQ' : counts unique values
 p 'DISCRETIZE' : bins continuous variables into discrete values based on specified cutpoints or specified number of equal sized bins
+p 'DOT_PRODUCT' : Calculates linear combination of variables in dataset and an arbitrary coefficients matrix
+p 'DS2'	: Wrapper for ds that doesn't abbreviate variable names
 p 'DTIMER' : Display-ready timer for console
 p 'DUPREP' : reports duplicates
 p 'FIX_PATH' : flips slashes on windows paths
