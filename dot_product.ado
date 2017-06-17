@@ -1,8 +1,12 @@
 * v1.0 01062017 , Apoorva Lal
 
 /*
-	Calculates the variable `Y = XB` where X is a subset of N variables in the currently loaded dataset, B is an arbitrary column vector (NX1 matrix). Basically a way to construct predicted values from a regression when the coefficients have been stored in a matrix / read in from elsewhere. Produces identical results to `predict` when used with the postestimation `e(b)` coefficient vector.
-
+	DOT PRODUCT
+	Calculates the variable `Y = XB` where X is a subset of N variables in the
+	currently loaded dataset, B is an arbitrary column vector (NX1 matrix). Basically
+	a way to construct predicted values from a regression when the coefficients have
+	been stored in a matrix / read in from elsewhere. Produces identical results to
+	`predict` when used with the postestimation `e(b)` coefficient vector.
 */
 
 program define dot_product, rclass
