@@ -1,10 +1,10 @@
-//*! Apoorva Lal V-0.1
+*! Apoorva Lal V-0.1
 // creates an entire path at once (rather than 1 folder at a time with mkdir)
 pr def pathmake
 	version 10
 	args p
 	loc cwd = "`c(pwd)'"
-	loc makedir mkdir	
+	loc makedir mkdir
 	if "`p'" == "" {
 		di as error "pathmake needs an argument"
 		error
