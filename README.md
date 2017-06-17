@@ -68,10 +68,10 @@ returns
 
 | Race                      | 1.F                         | 2.M              | Total    |
 |---------------------------|-----------------------------|------------------|----------|
-| 1. Black                  | 1                  | 2       |3|
-| 2. White                  | 4                  | 5       |6|
-| 3. Asian                  | 7                  | 8       |9|
-| 4. Native American        | 10                  | 11       |12|
+| 1. Black                  | 1                           | 2                |3|
+| 2. White                  | 4                           | 5                |9|
+| 3. Asian                  | 7                           | 8                |15|
+| 4. Native American        | 10                          | 11               |21|
 
 ### count_unique
 Duplicate functionality with codebook, but returns scalar that can be used for calculations / stored as a variable in a loop.
