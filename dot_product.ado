@@ -10,17 +10,18 @@
 */
 
 program define dot_product, rclass
-	// syntax : dot_product <projection> <coefficients> <variables>
-	syntax namelist(min=3)
-	loc targetvar `: word 1 of `namelist''
-	loc vector `: word 2 of `namelist''
+	// syntax : dot_product <projection> =  <coefficients> <variables>
+	syntax anything(equalok)
+	di "`anything'"
+	loc targetvar `: word 1 of `anything''
+	loc vector `: word 3 of `anything''
 	cap conf matrix `vector'
 	if _rc {
 		noi di as error "matrix `vector' not found"
 		exit
 	}
-	loc firsttwo `vector' `targetvar'
-	loc xvars : list namelist - firsttwo
+	loc firstthree `vector' `targetvar' =
+	loc xvars : list anything - firstthree
 	loc ndim : list sizeof xvars
 	loc rows `=rowsof(`vector')'
 	loc cols `=colsof(`vector')'
