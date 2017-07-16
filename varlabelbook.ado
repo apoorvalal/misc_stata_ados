@@ -16,6 +16,7 @@ pr define varlabelbook
         loc type_`i'     :type `vname_`i''
         if inlist("`type_`i''", "byte","int") {
             count_uniq `vname_`i''
+            loc distinct_vals_`i' = `r(nv)'
             if `r(nv)' <= 20 {
                 loc la_`vname_`i'': val l `vname_`i''
                 loc label_exists = cond("`la_`vname_`i'''" != "",1,0)
@@ -30,16 +31,27 @@ pr define varlabelbook
                 }
             }
         }
+        else {
+            if "`=substr("`type_`i''",1,3)'" ==  "str" {         // "
+                count_uniq `vname_`i''
+                loc distinct_vals_`i' = `r(nv)'
+            }
+            else {
+                loc distinct_vals_`i' = 99999 // set number of distinct values to 99999 if
+            }
+        }
     }
     clear
     set obs `nrows'
     qui g variable = ""
     qui g type = ""
     qui g var_label = ""
+    qui g distinct_vals = .
     qui g vals_and_labels = ""
     forv i = 1/`nrows' {
         qui replace variable        = "`vname_`i''"             if _n == `i'
         qui replace var_label       = "`var_label_`i''"         if _n == `i'
+        qui replace distinct_vals   = `distinct_vals_`i''       if _n == `i'
         qui replace type            = "`type_`i''"              if _n == `i'
         qui replace vals_and_labels = "`values_and_labels_`i''" if _n == `i'
     }
