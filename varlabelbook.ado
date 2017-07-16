@@ -33,10 +33,10 @@ pr define varlabelbook
     }
     clear
     set obs `nrows'
-    g variable = ""
-    g type = ""
-    g var_label = ""
-    g vals_and_labels = ""
+    qui g variable = ""
+    qui g type = ""
+    qui g var_label = ""
+    qui g vals_and_labels = ""
     forv i = 1/`nrows' {
         qui replace variable        = "`vname_`i''"             if _n == `i'
         qui replace var_label       = "`var_label_`i''"         if _n == `i'

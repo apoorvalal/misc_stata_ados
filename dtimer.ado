@@ -14,8 +14,8 @@ program dtimer
 	if "`tp'" == "off" {
 		timer off `i'
 		qui timer list `i'
-		loc mins `r(t`i')'/60
 		loc seconds `r(t`i')'
+		loc minutes `=`r(t`i')'/60'
 		di as result "{hline}"
 		di as text "---- Runtime -------"
 		foreach t in seconds minutes {
