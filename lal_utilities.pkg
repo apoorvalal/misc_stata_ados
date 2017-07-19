@@ -20,3 +20,5 @@ f pathmake.ado
 f prefix_labels.ado
 f unstable.ado
 f winsorize.ado
+f drop_missing.ado
+f varlabelbook.ado
