@@ -8,6 +8,7 @@ p 'DOT_PRODUCT' : Calculates linear combination of variables in dataset and an a
 p 'DS2'	: Wrapper for ds that doesn't abbreviate variable names
 p 'DTIMER' : Display-ready timer for console
 p 'DUPREP' : reports duplicates
+p 'EXISTENCE_CHECKER' : checks for existence of each variable in varlist
 p 'FIX_PATH' : flips slashes on windows paths
 p 'FREQ_TABLE' : outputs a frequency table for specified variables
 p 'LOOKIN' : string search

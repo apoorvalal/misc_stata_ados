@@ -22,3 +22,4 @@ f unstable.ado
 f winsorize.ado
 f drop_missing.ado
 f varlabelbook.ado
+f existence_checker.ado
