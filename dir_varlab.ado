@@ -10,7 +10,7 @@ pr define dir_varlab
       use "`p'/`f'", clear
       loc outfile = subinstr("`f'",".dta","_cb.csv",1)
       varlabelbook // personal ado file
-      export delimited using "`outfile'", replace 
+      export delimited using "`p'/`outfile'", replace 
     }
 end
 

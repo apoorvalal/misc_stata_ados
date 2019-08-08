@@ -10,7 +10,7 @@ pr define dir_to_csv
       use "`p'/`f'", clear
       loc outfile = subinstr("`f'","dta","csv",1)
       qui compress
-      export delimited using "`outfile'", replace 
+      export delimited using "`p'/`outfile'", replace 
     }
 end
 
