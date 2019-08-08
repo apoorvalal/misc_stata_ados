@@ -50,8 +50,8 @@ pr define varlabelbook
     qui g vals_and_labels = ""
     qui replace variable = "NObs" if _n == 1
     qui count
-    loc nobs_tot `r(N)''
-    qui replace distinct_vals = "`nobs_tot'" if _n == 1
+    loc nobs_tot `r(N)'
+    qui replace distinct_vals = `nobs_tot' if _n == 1
 
     forv i = 2/`nrows' {
         qui replace variable        = "`vname_`i''"             if _n == `i'

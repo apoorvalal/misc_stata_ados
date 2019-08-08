@@ -1,6 +1,9 @@
-
-/*cap pr drop codebook_dir*/
-pr define dir_varlab.ado
+* ! V0.1 08082019, Apoorva Lal
+cap pr drop dir_varlab
+pr define dir_varlab
+    /*
+    bulk export metadata for folders of dta
+     */
     args p
     local files : dir "`p'" files "*.dta"
     cd `p'
